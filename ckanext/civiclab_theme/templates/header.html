@@ -109,21 +109,15 @@
       {% block header_site_navigation %}
         <nav class="section navigation">
           <ul class="nav nav-pills">
-            {% block header_site_navigation_tabs %}
-              {{ h.build_nav_main(
-                ('search', _('Data')),
-		            ('group_index', _('Topics')),
-		            ('showcase', _('Applications')),
-                ('sparql', _('Developers')),
-                ('datarequest', _('Data Request')),
-                ('contact', _('Contact')),
-              ) }}
-            {% endblock %}
+            <li class="active"><a href="/dataset">Data</a></li>
+            <li><a href="/group">Topics</a></li>
+            <li><a href="/showcase">Applications</a></li>
+            <li><a href="/sparql">Developers</a></li>
+            <li><a href="/datarequest">Data Request</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
       {% endblock %}
-
-
 
     </div>
   </div>
