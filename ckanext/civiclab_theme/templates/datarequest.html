@@ -20,102 +20,284 @@
     {% block maintag %}<div role="main">{% endblock %}
       <div id="content" class="container">
         {% block main_content %}
-          {% block flash %}
-            <div class="flash-messages">
-              {% block flash_inner %}
-                {% for message in h.flash.pop_messages() | list %}
-                  <div class="alert fade in {{ message.category }}">
-                    {{ h.literal(message) }}
-                  </div>
-                {% endfor %}
-              {% endblock %}
-            </div>
-          {% endblock %}
-		
-		{#
-          {% block toolbar %}
-            <div class="toolbar">
-              {% block breadcrumb %}
-                {% if self.breadcrumb_content() | trim %}
-                  <ol class="breadcrumb">
-                    {% snippet 'snippets/home_breadcrumb_item.html' %}
-                    {% block breadcrumb_content %}{% endblock %}
-                  </ol>
-                {% endif %}
-              {% endblock %}
-            </div>
-          {% endblock %} #}
 
-          <div class="row wrapper{% block wrapper_class %}{% endblock %}{% if self.secondary()|trim == '' %} no-nav{% endif %}">
 
-            {#
-            The pre_primary block can be used to add content to before the
-            rendering of the main content columns of the page.
-            #}
-            {% block pre_primary %}
-            {% endblock %}
 
-            {% block primary %}
-              <div class="primary span9">
-                {#
-                The primary_content block can be used to add content to the page.
-                This is the main block that is likely to be used within a template.
 
-                Example:
+		<p>Please use the following form to submit a new request for data that is not currently available on civiclab.or.tz. If you would like to submit an issue or suggest a fix for existing data on civiclab.or.tz, please use the <a href="/issue/">Data Issue</a> page. This is part of the civiclab.or.tz Help Desk which is designed to route requests to the appropriate person and allow you to track the status of requests. Existing requests can be tracked on the <a href="/datarequest">Data Requests</a> page. </p>
+<p style="margin-bottom:3em">
+<em class="text-danger">All information provided other than your name and email address will be publicly visible</em>. If you would like to keep your request private, please use the main <a href="/contact/">contact form</a> instead.  For additional details, please consult our <a href="/privacy-policy">Privacy Policy</a>.
+</p>
 
-                  {% block primary_content %}
-                    <h1>My page content</h1>
-                    <p>Some content for the page</p>
-                  {% endblock %}
-                #}
-                {% block primary_content %}
-                  <article class="module">
-                    {% block page_header %}
-                      <header class="module-content page-header">
-                        {% if self.content_action() | trim %}
-                          <div class="content_action">
-                            {% block content_action %}{% endblock %}
-                          </div>
-                        {% endif %}
-                        <ul class="nav nav-tabs">
-                          {% block content_primary_nav %}{% endblock %}
-                        </ul>
-                      </header>
-                    {% endblock %}
-                    <div class="module-content">
-                      {% if self.page_primary_action() | trim %}
-                        <div class="page_primary_action">
-                          {% block page_primary_action %}{% endblock %}
-                        </div>
-                      {% endif %}
-                      {% block primary_content_inner %}
-                      {% endblock %}
-                    </div>
-                  </article>
-                {% endblock %}
-              </div>
-            {% endblock %}
+	<form class="open311-form" action="" method="post" role="form">
 
-		
-            {% block secondary %}{#
-              <aside class="secondary span3">#}
-                {#
-                The secondary_content block can be used to add content to the
-                sidebar of the page. This is the main block that is likely to be
-                used within a template.
+	<fieldset class="open311-service">
+		<legend>New Data Request</legend>
 
-                Example:
 
-                  {% block secondary_content %}
-                    <h2>A sidebar item</h2>
-                    <p>Some content for the item</p>
-                  {% endblock %}
-                #}{#
-                {% block secondary_content %}{% endblock %}
-              </aside>#}
-            {% endblock %} 
-          </div>
-        {% endblock %}
+
+							<div class="form-group required">
+<label title="Information provided here will be visible to the public" for="wp_open311_name"><i class="fa fa-globe"></i> Dataset Name <span class="open311-requirement-label">(Required)</span>
+</label>
+<input class="form-control" name="wp_open311_name" id="wp_open311_name" placeholder="" type="text">
+</div>
+							<div class="form-group required">
+<label title="Information provided here will be visible to the public" for="wp_open311_description"><i class="fa fa-globe"></i> Dataset Description <span class="open311-requirement-label">(Required)</span>
+</label>
+<textarea class="form-control" name="wp_open311_description" id="wp_open311_description"></textarea>
+</div>
+							<div class="form-group optional">
+<label title="Information provided here will be visible to the public" for="wp_open311_agency_name"><i class="fa fa-globe"></i> Related Agency <span class="open311-requirement-label">(Optional)</span>
+</label>
+<select class="form-control chosen-select" name="wp_open311_agency_name" id="wp_open311_agency_name" >
+<option value="" disabled="" selected=""></option>
+<option value="49015">Department of Agriculture</option>
+<option value="52668">Department of Commerce</option>
+<option value="49229">Department of Defense</option>
+<option value="49018">Department of Education</option>
+<option value="49019">Department of Energy</option>
+<option value="49021">Department of Health and Human Services</option>
+<option value="49022">Department of Homeland Security</option>
+<option value="49023">Department of Housing and Urban Development</option>
+<option value="52686">Department of Justice</option>
+<option value="49028">Department of Labor</option>
+<option value="49030">Department of State</option>
+<option value="49033">Department of the Interior</option>
+<option value="49034">Department of the Treasury</option>
+<option value="49035">Department of Transportation</option>
+<option value="48027">Department of Veterans Affairs</option>
+<option value="49039">Environmental Protection Agency</option>
+<option value="49048">General Services Administration</option>
+<option value="49476">National Aeronautics and Space Administration</option>
+<option value="49483">National Archives and Records Administration</option>
+<option value="52640">National Science Foundation</option>
+<option value="52645">Nuclear Regulatory Commission</option>
+<option value="48112">Office of Personnel Management</option>
+<option value="48139">Small Business Administration</option>
+<option value="49057">Social Security Administration</option>
+<option value="52583">U.S. Agency for International Development</option>
+<option value="49180">Council of Economic Advisers</option>
+<option value="49181">Council on Environmental Quality</option>
+<option value="49235">Domestic Policy Council</option>
+<option value="49496">National Economic Council</option>
+<option value="49548">National Security Council</option>
+<option value="49584">Office of Management and Budget</option>
+<option value="49586">Office of National Drug Control Policy</option>
+<option value="49590">Office of Science and Technology Policy</option>
+<option value="49724">U.S. Trade Representative</option>
+<option value="49747">White House Office of Administration</option>
+<option value="49068">Administrative Conference of the United States</option>
+<option value="49070">Administrative Office of the U.S. Courts</option>
+<option value="52580">Advisory Council on Historic Preservation</option>
+<option value="52581">African Development Foundation</option>
+<option value="55826">AIDsinfo</option>
+<option value="52584">American Battle Monuments Commission</option>
+<option value="55835">Americans with Disabilities Act Information Line</option>
+<option value="52588">Appalachian Regional Commission</option>
+<option value="49093">Armed Forces Retirement Home</option>
+<option value="49102">Bankruptcy Courts</option>
+<option value="49105">Barry M. Goldwater Scholarship and Excellence in Education Program</option>
+<option value="49109">Broadcasting Board of Governors</option>
+<option value="49112">Bureau of Citizenship and Immigration Services</option>
+<option value="52590">Central Intelligence Agency</option>
+<option value="52591">Chemical Safety and Hazard Investigation Board</option>
+<option value="49139">Chief Acquisition Officers Council</option>
+<option value="49141">Chief Financial Officers Council</option>
+<option value="49143">Chief Human Capital Officers Council</option>
+<option value="49145">Chief Information Officers Council</option>
+<option value="49146">Citizens' Stamp Advisory Committee</option>
+<option value="48018">Commission on Civil Rights</option>
+<option value="49155">Commission on Security and Cooperation in Europe</option>
+<option value="49161">Committee on Foreign Investment in the United States</option>
+<option value="49113">Consumer Financial Protection Bureau</option>
+<option value="49013">Consumer Product Safety Commission</option>
+<option value="49174">Coordinating Council on Juvenile Justice and Delinquency Prevention</option>
+<option value="52593">Corporation for National and Community Service</option>
+<option value="49182">Court of Appeals for the Armed Forces</option>
+<option value="49184">Court of Appeals for the Federal Circuit</option>
+<option value="49188">Court of Federal Claims</option>
+<option value="49189">Court of International Trade</option>
+<option value="49191">Court Services and Offender Supervision Agency for the District of Columbia</option>
+<option value="49206">Defense Field Activities</option>
+<option value="52601">Defense Nuclear Facilities Safety Board</option>
+<option value="49225">Delaware River Basin Commission</option>
+<option value="49227">Denali Commission</option>
+<option value="49237">Economic, Business and Agricultural Affairs</option>
+<option value="48032">Equal Employment Opportunity Commission</option>
+<option value="52603">Export-Import Bank of the United States</option>
+<option value="52605">Farm Credit Administration</option>
+<option value="72913">Farm Credit System Insurance Corporation</option>
+<option value="49275">Federal Accounting Standards Advisory Board</option>
+<option value="55847">Federal Citizen Information Center</option>
+<option value="49041">Federal Communications Commission</option>
+<option value="49043">Federal Deposit Insurance Corporation</option>
+<option value="52607">Federal Election Commission</option>
+<option value="49290">Federal Financial Institutions Examination Council</option>
+<option value="49294">Federal Geographic Data Committee</option>
+<option value="52611">Federal Housing Finance Agency</option>
+<option value="49299">Federal Interagency Committee for the Management of Noxious and Exotic Weeds</option>
+<option value="49300">Federal Interagency Committee on Education</option>
+<option value="49301">Federal Interagency Council on Statistical Policy</option>
+<option value="49303">Federal Judicial Center</option>
+<option value="52613">Federal Labor Relations Authority</option>
+<option value="49304">Federal Laboratory Consortium for Technology Transfer</option>
+<option value="49310">Federal Library and Information Center Committee</option>
+<option value="52615">Federal Maritime Commission</option>
+<option value="49312">Federal Mediation and Conciliation Service</option>
+<option value="52617">Federal Mine Safety and Health Review Commission</option>
+<option value="49315">Federal Motor Carrier Safety Administration</option>
+<option value="52619">Federal National Mortgage Association</option>
+<option value="49046">Federal Reserve System</option>
+<option value="49320">Federal Retirement Thrift Investment Board</option>
+<option value="49322">Federal Student Aid Information Center</option>
+<option value="49047">Federal Trade Commission</option>
+<option value="68880">Federal Voting Assistance Program</option>
+<option value="49336">Foreign Claims Settlement Commission</option>
+<option value="49341">Fulbright Foreign Scholarship Board</option>
+<option value="49348">Global Affairs</option>
+<option value="49356">Harry S. Truman Scholarship Foundation</option>
+<option value="55853">HIV/AIDS Prevention</option>
+<option value="49363">Holocaust Memorial Museum</option>
+<option value="55854">Indoor Environments Division</option>
+<option value="52647">Inspectors General</option>
+<option value="52626">Institute of Museum and Library Services</option>
+<option value="49398">Institute of Peace</option>
+<option value="49404">Inter-American Foundation</option>
+<option value="49400">Interagency Alternative Dispute Resolution Working Group</option>
+<option value="49402">Interagency Council on Homelessness</option>
+<option value="49412">James Madison Memorial Fellowship Foundation</option>
+<option value="49414">Japan-United States Friendship Commission</option>
+<option value="49416">John F. Kennedy Center for the Performing Arts</option>
+<option value="49420">Joint Chiefs of Staff</option>
+<option value="49422">Joint Congressional Committee on Inaugural Ceremonies</option>
+<option value="49423">Joint Fire Science Program</option>
+<option value="49425">Joint Forces Command</option>
+<option value="49431">Judicial Panel on Multidistrict Litigation</option>
+<option value="49442">Legal Services Corporation</option>
+<option value="49446">Marine Mammal Commission</option>
+<option value="61787">Medicaid and CHIP Payment and Access Commission</option>
+<option value="52629">Medicare Payment Advisory Commission</option>
+<option value="52630">Merit Systems Protection Board</option>
+<option value="49457">Migratory Bird Conservation Commission</option>
+<option value="49460">Millennium Challenge Corporation</option>
+<option value="49470">Mississippi River Commission</option>
+<option value="49473">Morris K. Udall and Stewart L. Udall Foundation</option>
+<option value="49484">National Bipartisan Commission on the Future of Medicare</option>
+<option value="55875">National Cancer Institute</option>
+<option value="52633">National Capital Planning Commission</option>
+<option value="49488">National Commission on Fiscal Responsibility and Reform</option>
+<option value="49489">National Constitution Center</option>
+<option value="48076">National Council on Disability</option>
+<option value="49050">National Credit Union Administration</option>
+<option value="52634">National Endowment for the Arts</option>
+<option value="52636">National Endowment for the Humanities</option>
+<option value="49502">National Gallery of Art</option>
+<option value="49506">National Guard</option>
+<option value="49512">National Indian Gaming Commission</option>
+<option value="52681">National Institute of Occupational Safety and Health</option>
+<option value="49520">National Interagency Fire Center</option>
+<option value="49523">National Labor Relations Board</option>
+<option value="49526">National Mediation Board</option>
+<option value="49536">National Park Foundation</option>
+<option value="49084">National Railroad Passenger Corporation</option>
+<option value="49542">National Reconnaissance Office</option>
+<option value="52641">National Transportation Safety Board</option>
+<option value="49567">Northwest Power and Conservation Council</option>
+<option value="49571">Nuclear Waste Technical Review Board</option>
+<option value="49577">Occupational Safety and Health Review Commission</option>
+<option value="55887">Office for Civil Rights, Department of Health and Human Services</option>
+<option value="52646">Office of Government Ethics</option>
+<option value="55890">Office of Manufactured Housing Programs</option>
+<option value="49593">Office of Special Counsel</option>
+<option value="49595">Office of the Director of National Intelligence</option>
+<option value="52651">Overseas Private Investment Corporation</option>
+<option value="52652">Peace Corps</option>
+<option value="49052">Pension Benefit Guaranty Corporation</option>
+<option value="49620">Political Affairs</option>
+<option value="49621">Postal Regulatory Commission</option>
+<option value="52654">President's Council on Physical Fitness and Sports</option>
+<option value="49625">Presidio Trust</option>
+<option value="49632">Public Diplomacy and Public Affairs</option>
+<option value="52655">Public Records/Disclosure Office</option>
+<option value="52657">Railroad Retirement Board</option>
+<option value="55896">Seafood Inspection Program</option>
+<option value="49054">Securities and Exchange Commission</option>
+<option value="52658">Selective Service System</option>
+<option value="49668">Smithsonian Institution</option>
+<option value="49670">Social Security Advisory Board</option>
+<option value="49681">State Justice Institute</option>
+<option value="49688">Supreme Court of the United States</option>
+<option value="49692">Susquehanna River Basin Commission</option>
+<option value="49694">Tax Court</option>
+<option value="52660">Tennessee Valley Authority</option>
+<option value="49157">U.S. AbilityOne Commission</option>
+<option value="52663">U.S. Access Board</option>
+<option value="49092">U.S. Arctic Research Commission</option>
+<option value="49430">U.S. Circuit Courts of Appeal</option>
+<option value="52592">U.S. Commission of Fine Arts</option>
+<option value="49153">U.S. Commission on International Religious Freedom</option>
+<option value="48146">U.S. Commodity Futures Trading Commission</option>
+<option value="49186">U.S. Court of Appeals for Veterans Claims</option>
+<option value="52666">U.S. Election Assistance Commission</option>
+<option value="49371">U.S. House of Representatives</option>
+<option value="49712">U.S. International Trade Commission</option>
+<option value="49061">U.S. Postal Service</option>
+<option value="49664">U.S. Senate</option>
+<option value="49719">U.S. Sentencing Commission</option>
+<option value="49721">U.S. Trade and Development Agency</option>
+<option value="48159">Veterans Health Administration</option>
+<option value="49732">Vietnam Education Foundation</option>
+<option value="55928">Weights and Measures Division</option>
+<option value="49743">White House</option>
+<option value="49749">Woodrow Wilson International Center for Scholars</option>
+</select>
+							<div class="form-group optional">
+<label title="Information provided here will be visible to the public" for="wp_open311_resource_type"><i class="fa fa-globe"></i> How would you like the data provided? <span class="open311-requirement-label">(Optional)</span>
+</label>
+<select class="form-control chosen-select" name="wp_open311_resource_type" id="wp_open311_resource_type" >
+<option value="" disabled="" selected=""></option>
+<option value="bulk">Bulk file download</option>
+<option value="api">Web API</option>
+<option value="both">Both bulk download and API</option>
+<option value="other">Other</option>
+</select>
+</div>
+
+
+
+	</fieldset>
+
+	<fieldset class="open311-core">
+		<legend>Information about your Request</legend>
+					<div class="form-group optional">
+<label title="This information is private and will only be used to respond to you" for="wp_open311_first_name"><i class="fa fa-lock"></i> First Name <span class="open311-requirement-label">(Optional)</span>
+</label>
+<input class="form-control" name="wp_open311_first_name" id="wp_open311_first_name" placeholder="" type="text">
+</div>
+					<div class="form-group optional">
+<label title="This information is private and will only be used to respond to you" for="wp_open311_last_name"><i class="fa fa-lock"></i> Last Name <span class="open311-requirement-label">(Optional)</span>
+</label>
+<input class="form-control" name="wp_open311_last_name" id="wp_open311_last_name" placeholder="" type="text">
+</div>
+					<div class="form-group optional">
+<label title="This information is private and will only be used to respond to you" for="wp_open311_email"><i class="fa fa-lock"></i> Email <span class="open311-requirement-label">(Optional)</span>
+</label>
+<input class="form-control" name="wp_open311_email" id="wp_open311_email" placeholder="" type="text">
+</div>
+			</fieldset>
+
+
+	<input name="wp_open311_service_code" value="003" type="hidden">
+	<button type="submit" class="btn btn-primary">Submit</button>
+
+
+	<input name="as_sfid" value="AAAAAAWqw4t5DyfqMqN9yW7YFxmsMIYbe3_Rx1Er-q7lDcM9woVumJwrO_6ZTU9IRJiNaDdx5_Y_YVaLuGSg8riEFUMbG89lXfyoQII4t2O1NwKp_RbA8Bywxvy3xgU8sLM8fYI=" type="hidden"><input name="as_fid" value="aedaaf26f9b6440c57a535078f4abcceab53fbe8" type="hidden"></form>
+
+
+
+
+<div style="display: block !important; margin:0 !important; padding: 0 !important" id="wpp_popup_post_end_element"></div>
+        {% endblock -%}
       </div>
     </div>
   {% endblock -%}
