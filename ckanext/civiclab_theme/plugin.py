@@ -8,10 +8,11 @@ class Civiclab_ThemePlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
 
 # IRoutes
     def before_map(self,m):
+        m.redirect('/', '/dataset')
         m.connect('applications','/applications',controller='ckanext.civiclab_theme.controller:ApplicationsController',action='applications')
-	m.connect('developers','/developers',controller='ckanext.civiclab_theme.controller:DevelopersController',action='developers')
-	m.connect('datarequest','/datarequest',controller='ckanext.civiclab_theme.controller:DataRequestController',action='datarequest')
-	m.connect('contact','/contact',controller='ckanext.civiclab_theme.controller:ContactController',action='contact')
+        m.connect('developers','/developers',controller='ckanext.civiclab_theme.controller:DevelopersController',action='developers')
+        m.connect('datarequest','/datarequest',controller='ckanext.civiclab_theme.controller:DataRequestController',action='datarequest')
+        m.connect('contact','/contact',controller='ckanext.civiclab_theme.controller:ContactController',action='contact')
         return m
 
     # IConfigurer
